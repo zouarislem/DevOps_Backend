@@ -19,6 +19,7 @@ import tn.esprit.devops_project.entities.Stock;
 import tn.esprit.devops_project.entities.Supplier;
 
 import javax.persistence.SecondaryTable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -124,11 +125,15 @@ OperatorServiceImpl operatorService;
     @Test
     @DatabaseSetup("/data-set/invoice-data.xml")
     void getTotalAmountInvoiceBetweenDates() {
-        // float amount = this.invoiceService.getTotalAmountInvoiceBetweenDates(,(2023-10-24));
+       //  float amount = this.invoiceService.getTotalAmountInvoiceBetweenDates(("2023-01-01"),("2023-10-24"));
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+     //   Date startDate = dateFormat.parse("2023-12-31");
+      //  Date endDate = dateFormat.parse("2023-12-31");
+
     }
 
     @Test
-    @DatabaseSetup("/data-set/stock-data.xml")
+    @DatabaseSetup("/data-set/invoice-data.xml")
     void retrieveInvoice_nullId() {
         Exception exception = assertThrows(NullPointerException.class, () -> {
             final Invoice invoice = this.invoiceService.retrieveInvoice(20L);
