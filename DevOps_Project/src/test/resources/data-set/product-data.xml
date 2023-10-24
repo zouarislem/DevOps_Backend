@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dataset>
+    <product
+            title="titre1"
+            price="10.0"
+            quantity="30"
+            ID_PRODUCT="1"
+
+    />
+</dataset>

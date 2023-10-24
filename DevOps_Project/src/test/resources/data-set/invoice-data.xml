@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dataset>
+    <invoice
+            AMOUNT_INVOICE="2.0"
+            AMOUNT_DISCOUNT="5.0"
+            ID_INVOICE="1"
+            DATE_LAST_MODIFICATION_INVOICE="2023-10-24"
+            DATE_CREATION_INVOICE="2023-10-23"
+    />
+</dataset>
