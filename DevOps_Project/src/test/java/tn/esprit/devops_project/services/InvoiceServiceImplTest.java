@@ -55,6 +55,13 @@ OperatorServiceImpl operatorService;
         assertEquals(invoice.getArchived(), Boolean.TRUE);
 
     }
+    @Test
+    @DatabaseSetup("/data-set/invoice-data.xml")
+    void cancelInvoice_Null() {
+        Exception exception = assertThrows(NullPointerException.class, () -> {
+            this.invoiceService.cancelInvoice(100L);
+        });
+    }
 
     @Test
     @DatabaseSetup("/data-set/invoice-data.xml")
@@ -74,6 +81,18 @@ OperatorServiceImpl operatorService;
     }
 
     @Test
+    @DatabaseSetup("/data-set/supplier-data.xml")
+    @DatabaseSetup("/data-set/invoice-data.xml")
+    void getInvoicesBySupplier_nullId() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Supplier supplier = this.supplierService.retrieveSupplier(80L);
+        });
+        Exception exception1 = assertThrows(NullPointerException.class, () -> {
+            List<Invoice> invoices = this.invoiceService.getInvoicesBySupplier(80L);
+        });
+    }
+
+    @Test
     @DatabaseSetup("/data-set/invoice-data.xml")
     @DatabaseSetup("/data-set/operator-data.xml")
     void assignOperatorToInvoice() {
@@ -82,6 +101,15 @@ OperatorServiceImpl operatorService;
         this.invoiceService.assignOperatorToInvoice(1L, 1L);
        assertEquals(1, operator.getInvoices().size());
 
+    }
+
+    @Test
+    @DatabaseSetup("/data-set/invoice-data.xml")
+    @DatabaseSetup("/data-set/operator-data.xml")
+    void assignOperatorToInvoice_Null() {
+        Exception exception = assertThrows(NullPointerException.class, () -> {
+            this.invoiceService.assignOperatorToInvoice(100L, 100L);
+        });
     }
     @Test
     @DatabaseSetup("/data-set/invoice-data.xml")

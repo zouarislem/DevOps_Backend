@@ -52,18 +52,12 @@ StockServiceImpl stockService;
 
     @Test
     @DatabaseSetup("/data-set/stock-data.xml")
+    @DatabaseSetup("/data-set/product-data.xml")
     void addProduct_nullId() {
-        Exception exception = assertThrows(NullPointerException.class, () -> {
-            final Stock stock = this.stockService.retrieveStock(20L);
-            Product product = new Product();
-            product.setStock(stock);
-            product.setQuantity(50);
-            product.setTitle("titre20");
-            product.setCategory(ProductCategory.BOOKS);
+
+        Exception exception1 = assertThrows(NullPointerException.class, () -> {;
             this.productService.addProduct(product, stock.getIdStock());
         });
-
-
     }
     @Test
     @DatabaseSetup("/data-set/product-data.xml")
@@ -101,5 +95,13 @@ StockServiceImpl stockService;
         for (Product product : allproduct){
             assertEquals(product.getStock(),stock);
         }
+    }
+
+    @Test
+    @DatabaseSetup("/data-set/product-data.xml")
+    void retrieveStock_nullId() {
+        Exception exception = assertThrows(NullPointerException.class, () -> {
+            final Product product = this.productService.retrieveProduct(50L);
+        });
     }
 }

@@ -77,5 +77,11 @@ OperatorServiceImpl operatorService;
         assertEquals("fname 1", operator.getFname());
         assertEquals("pwd1", operator.getPassword());
     }
-
+    @Test
+    @DatabaseSetup("/data-set/operator-data.xml")
+    void retrieveOperator_nullId() {
+        Exception exception = assertThrows(NullPointerException.class, () -> {
+            final Operator operator = this.operatorService.retrieveOperator(30L);
+        });
+    }
 }

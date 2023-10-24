@@ -75,4 +75,13 @@ class SupplierServiceImplTest {
         assertEquals("test", supplier.getLabel());
     }
 
+    @Test
+    @DatabaseSetup("/data-set/supplier-data.xml")
+    void retrieveSupplier_nullId() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            final Supplier supplier = this.supplierService.retrieveSupplier(500L);
+        });
+    }
+
+
 }
