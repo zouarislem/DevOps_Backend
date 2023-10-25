@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b0f5c0a-e673-4ffe-b3c9-d9d29f023b47" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/DevOps_Project/src/test/java/tn/esprit/devops_project/services/InvoiceServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/DevOps_Project/src/test/java/tn/esprit/devops_project/services/InvoiceServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DevOps_Project/src/test/java/tn/esprit/devops_project/services/ProductServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/DevOps_Project/src/test/java/tn/esprit/devops_project/services/ProductServiceImplTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="4b0f5c0a-e673-4ffe-b3c9-d9d29f023b47" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,7 +43,7 @@
       <option name="presentableId" value="Default" />
       <updated>1698144764106</updated>
       <workItem from="1698144766061" duration="30000" />
-      <workItem from="1698164321121" duration="674000" />
+      <workItem from="1698164321121" duration="1274000" />
     </task>
     <servers />
   </component>

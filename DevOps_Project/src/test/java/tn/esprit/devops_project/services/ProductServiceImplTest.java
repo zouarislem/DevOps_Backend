@@ -55,17 +55,12 @@ StockServiceImpl stockService;
     @DatabaseSetup("/data-set/product-data.xml")
     void addProduct_nullId() {
 
-        // Test du cas où le stock n'est pas trouvé
-        assertThrows(NullPointerException.class, () -> {
-            Stock stock = this.stockService.retrieveStock(60L);
+        NullPointerException exception = assertThrows(NullPointerException.class, () -> {
+            Product product = new Product();
+            Long idStock = 50L;
+            productService.addProduct(product, idStock);
         });
-
-        // Test du cas où le produit est nul
-        assertThrows(NullPointerException.class, () -> {
-            Stock stock = this.stockService.retrieveStock(70L);
-            Product product = null;
-            this.productService.addProduct(product, stock.getIdStock());
-        });
+        assertEquals("stock not found", exception.getMessage());
     }
     @Test
     @DatabaseSetup("/data-set/product-data.xml")
