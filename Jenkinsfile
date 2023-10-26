@@ -1,12 +1,13 @@
 pipeline {
 
-	agent any
+	agent {
 
-  stage("Clone the project") {
-    git branch: 'backend', url: 'https://github.com/zouarislem/DevOps_Backend.git'
+  stages {
+        stage('Build') { 
+            steps {
+                sh 'mvn -B -DskipTests clean package' 
+            }
+        }
   }
-
-  stage("Compilation") {
-    sh "./mvnw clean install -DskipTests"
-  }
+	}
 }
