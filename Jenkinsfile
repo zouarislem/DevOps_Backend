@@ -3,7 +3,7 @@ pipeline {
 	agent any
 
   stage("Clone the project") {
-    git branch: 'main', url: 'https://github.com/nkchauhan003/jenkins-demo.git'
+    git branch: 'backend', url: 'https://github.com/zouarislem/DevOps_Backend.git'
   }
 
   stage("Compilation") {
