@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn -B -DskipTests clean package'
+                dir('DevOps_Backend/DevOps_Project/') {
+                    sh 'mvn -B -DskipTests clean package'
+                }
             }
         }
     }
