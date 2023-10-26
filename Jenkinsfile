@@ -1,15 +1,11 @@
 pipeline {
     agent any
+    
+stage('Build Artifact') {
+			steps {
+				sh "mvn clean package -DskipTests=true"
+				archive'target/*.jar'
+			}
+		}
 
-    triggers {
-        pollSCM '* * * * *'
-    }
-  stage("Compilation") {
-    sh "./mvnw clean install -DskipTests"
-  }
-
-  stage("Tests and Deployment") {
-    stage("Runing unit tests") {
-      sh "./mvnw test -Punit"
-    }
 }
