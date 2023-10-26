@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Build - Java Application') {
             steps {
                 dir('DevOps_Project/') {
                     sh 'mvn -B -DskipTests clean package'
@@ -10,11 +10,11 @@ pipeline {
         }
         stage('Build - Node.js Application') {
             steps {
-               
-                    sh 'npm install'  // Exécutez les commandes Node.js appropriées
+                dir('DevOps_FrontEnd/') {
+                    sh 'npm install'
                     sh 'npm run build'
+                }
             }
         }
     }
 }
-
