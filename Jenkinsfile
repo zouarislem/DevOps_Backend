@@ -8,6 +8,13 @@ pipeline {
                 }
             }
         }
+        stage('Build - Node.js Application') {
+            steps {
+               
+                    sh 'npm install'  // Exécutez les commandes Node.js appropriées
+                    sh 'npm run build'
+            }
+        }
     }
 }
 
