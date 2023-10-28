@@ -3,10 +3,8 @@ pipeline {
 
     stages {
         stage('Build Backend (Spring Boot)') {
-            steps {
-                dir('DevOps_Project') {
-                    sh 'mvn clean package'
-                }
+            steps {               
+                    sh 'mvn clean package'                
             }
         }
     }
