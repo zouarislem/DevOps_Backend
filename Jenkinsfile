@@ -9,7 +9,7 @@ pipeline {
     }
 }
 
-    }
+    
     post {
         success {
             echo 'Both backend and frontend builds were successful.'
