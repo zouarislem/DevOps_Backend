@@ -1,50 +1,22 @@
 pipeline {
     agent any
 
-    environment {
-        MAVEN_HOME = tool name: 'Maven', type: 'Maven'
-        JAVA_HOME = tool name: 'JDK', type: 'JDK'
-    }
-
     stages {
-        stage('Checkout') {
+        stage('Build Backend (Spring Boot)') {
             steps {
-                checkout scm
-            }
-        }
-
-        stage('Build') {
-            steps {
-                sh "${tool(name: 'JDK', type: 'JDK')}/bin/java -version"
-                sh "${tool(name: 'Maven', type: 'Maven')}/bin/mvn clean install"
-            }
-        }
-
-        stage('Unit Tests') {
-            steps {
-                sh "${tool(name: 'Maven', type: 'Maven')}/bin/mvn test" // Execute unit tests
-            }
-        }
-
-        stage('Package') {
-            steps {
-                sh "${tool(name: 'Maven', type: 'Maven')}/bin/mvn package"
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                sh 'ssh user@server "cd /path/to/deployment/directory && ./deploy.sh"'
+                dir('DevOps_Project') {
+                    sh 'mvn clean package'
+                }
             }
         }
     }
 
     post {
         success {
-            echo 'The pipeline succeeded!'
+            echo 'Backend build was successful.'
         }
         failure {
-            echo 'The pipeline failed.'
+            echo 'Backend build failed. Please check the logs for details.'
         }
     }
 }
