@@ -1,16 +1,13 @@
 pipeline {
     agent any
 
-    stages {
-        stage('Build Backend (Spring Boot)') {
-            steps {
-                script {
-                    // Define any specific environment setup for the backend build
-                  //  sh 'DevOps_Backend/DevOps_Project'  // Navigate to the Spring Boot project directory
-                    sh 'mvn clean package'    // Use Maven to build the Spring Boot application
-                }
-            }
+  stage('Build Backend (Spring Boot)') {
+    steps {
+        dir('/DevOps_Project') {
+            sh 'mvn clean package'
         }
+    }
+}
 
     }
     post {
