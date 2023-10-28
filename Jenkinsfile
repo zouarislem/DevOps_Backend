@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     // Define any specific environment setup for the backend build
-                    sh 'https://github.com/zouarislem/DevOps_Backend.git'  // Navigate to the Spring Boot project directory
+                    sh 'DevOps_Backend/DevOps_Project'  // Navigate to the Spring Boot project directory
                     sh 'mvn clean package'    // Use Maven to build the Spring Boot application
                 }
             }
