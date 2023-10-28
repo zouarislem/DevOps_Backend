@@ -15,6 +15,12 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
+        stage('Run Tests') {
+            steps {
+                // Run JUnit tests using Maven
+                sh 'mvn test'
+            }
+        }
     }
 
     post {
