@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b0f5c0a-e673-4ffe-b3c9-d9d29f023b47" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DevOps_Project/Jenkinsfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DevOps_Project/Jenkinsfile" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +47,7 @@
       <workItem from="1698144766061" duration="30000" />
       <workItem from="1698164321121" duration="1274000" />
       <workItem from="1698282892711" duration="89000" />
+      <workItem from="1698284685924" duration="104000" />
     </task>
     <servers />
   </component>
