@@ -8,13 +8,4 @@ pipeline {
             }
         }
     }
-
-    post {
-        success {
-            echo 'Backend build was successful.'
-        }
-        failure {
-            echo 'Backend build failed. Please check the logs for details.'
-        }
-    }
 }
