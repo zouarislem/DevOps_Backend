@@ -2,21 +2,32 @@ pipeline {
     agent any
 
     stages {
-        stage('Build Backend (Spring Boot)') {
+        stage('Checkout') {
             steps {
-                dir('DevOps_Project') {
-                    sh 'mvn clean package'
-                }
+                // Checkout the source code from your version control system (e.g., Git)
+                checkout scm
+            }
+        }
+
+        stage('Build Spring Boot App') {
+            steps {
+                // Use Apache Maven to build the Spring Boot application
+                sh 'mvn clean package'
+            }
+        }
+        stage('Run Tests') {
+            steps {
+                // Run JUnit tests using Maven
+                sh 'mvn test'
             }
         }
     }
 
     post {
         success {
-            echo 'Backend build was successful.'
-        }
-        failure {
-            echo 'Backend build failed. Please check the logs for details.'
+            // Add post-build actions here, such as archiving artifacts
+            archiveArtifacts(allowEmptyArchive: true, artifacts: 'target/*.jar')
         }
     }
 }
+
